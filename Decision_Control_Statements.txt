@@ -1,0 +1,15 @@
+decision making structures require the programmer to specify one or more conditions to be 
+evaluated or tested by the program along with a statement or statements to be executed if
+the condition is determined to be true and optionally other statements to be executed if the
+condition is false
+
+R provides the following types of decision making statements:
+1. If statement
+	An if statement consists of a boolean expression followed by one or more statements.
+2. If else statement
+	An if statement can be followed by an optional else statement which executes when 
+		the boolean expression is false.
+3. Switch statement
+	A switch statement allows a variable to be tested for equality  against a list of
+		values.
+4. 

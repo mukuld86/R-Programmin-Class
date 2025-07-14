@@ -1,0 +1,48 @@
+---
+title: "Diabetes Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(knitr)
+library(plotly)
+library(dplyr)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+data<-read.csv(file.choose())
+View(data)
+head(data)
+ggplot(data=data, aes(x=Age, y=BloodPressure))+geom_line()+geom_point()
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+data <- read.csv(file.choose())
+head(data)
+ggplot(data)+geom_bar(data=data, aes(x=Age), main="Title")
+```
+
+### Chart C
+
+```{r}
+with(data, pie(table(Age, BloodPressure)))
+
+
+```
+

@@ -1,0 +1,38 @@
+---
+title: "MTcars Dashboard"
+output: flexdashboard::flex_dashboard
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(knitr)
+
+```{r cars}
+summary_table <- summary(mtcars)
+kable(summary_table, format = "html")
+```
+
+```{r}
+summary_stats <- sapply(mtcars, function(x) c(mean = mean(x), median = median(x), sd = sd(x)))
+kable(summary_stats, format = "html")
+```
+
+```{r}
+plot(mtcars$wt, mtcars$mpg, 
+     xlab = "Weight", 
+     ylab = "Miles Per Gallon", 
+     main = "MPG vs. Weight",
+     col = "blue",
+     pch = 19)
+
+
+```
+```{r}
+hist(mtcars$mpg, 
+     xlab = "Miles Per Gallon", 
+     main = "Distribution of MPG", 
+     col = "lightgreen")
+
+```
+
+This R Markdown code will generate an HTML dashboard titled "MTcars Dashboard" with two tabs. The first tab contains summary statistics (both as a table and descriptive statistics), and the second tab displays two visualizations: a scatter plot of MPG vs. Weight and a histogram of the MPG distribution from the `mtcars` dataset.
